@@ -1,0 +1,34 @@
+<%= form_for @claim, :html => { :class => 'form-horizontal', :role => "form" } do |f| %>
+  <div class="form-group">
+    <%= f.label :claim_id, :class => 'col-sm-3 control-label' %>
+    <div class="col-sm-9">
+      <%= f.text_field :claim_id, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :claimant_name, :class => 'col-sm-3 control-label' %>
+    <div class="col-sm-9">
+      <%= f.text_field :claimant_name, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :postcode, :class => 'col-sm-3 control-label' %>
+    <div class="col-sm-9">
+      <%= f.text_field :postcode, :class => 'form-control' %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :policy_no, :class => 'col-sm-3 control-label' %>
+    <div class="col-sm-9">
+      <%= f.text_field :policy_no, :class => 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <%= f.submit nil, :class => 'btn btn-primary' %>
+      <%= link_to t('.back', :default => t("helpers.links.back")),
+                claims_path, :class => 'btn btn-default' %>
+    </div>
+  </div>
+<% end %>

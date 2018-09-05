@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  claim_id: MyString
+  claimant_name: MyString
+  postcode: MyString
+  policy_no: MyString
+
+two:
+  claim_id: MyString
+  claimant_name: MyString
+  postcode: MyString
+  policy_no: MyString

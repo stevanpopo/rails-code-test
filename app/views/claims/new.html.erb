@@ -1,0 +1,5 @@
+<%- model_class = Claim -%>
+<% content_for :title do %>
+	<%=t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => model_class.model_name.human.titleize %>
+<% end %>
+<%= render :partial => 'form' %>

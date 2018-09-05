@@ -1,0 +1,18 @@
+<% content_for :content do %>
+	<div class="row">
+		<% if content_for(:title) %>
+			<div class="page-header">
+	  		<h2><span class="label label-default"><%= @claim.claim_id %></span><%= yield(:title) %></h2>
+	  		<span class="label label-default pull-right created_at"><%= @claim.created_at %></span>
+  		</div>
+		<% end %>
+		<div class="col-sm-3 col-md-2">
+		  <%= render "layouts/shared/sidebar" %>
+		</div>
+		<div class="col-sm-9 col-md-10">
+			<%= yield %>
+		</div>
+	</div>
+<% end %>
+
+<%= render file: "layouts/application" %>

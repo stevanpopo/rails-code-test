@@ -1,0 +1,9 @@
+<ul class="nav nav-pills nav-stacked">
+  <% if @claim.persisted? %>
+  	<li <%= params[:controller] == "claims" ? "class=active" : nil %>><%= link_to "Edit Claim", edit_claim_path(@claim) %></li>
+  	<li <%= params[:controller] == "emails" ? "class=active" : nil %>><%= link_to "Emails", claim_emails_path(@claim) %></li>
+	<% else %>
+		<li class="active"><a href="#">Claim Details</a></li>
+  	<li class="disabled"><a href="#">Emails</a></li>
+	<% end %>
+</ul>

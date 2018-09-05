@@ -1,0 +1,40 @@
+<%- model_class = Claim -%>
+<div class="page-header">
+  <%= link_to t('.new', :default => t("helpers.links.new")),
+            new_claim_path,
+            :class => 'btn btn-primary pull-right' %>
+  <h2><%=t '.title', :default => model_class.model_name.human.pluralize.titleize %></h2>
+  
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:claim_id) %></th>
+      <th><%= model_class.human_attribute_name(:claimant_name) %></th>
+      <th><%= model_class.human_attribute_name(:postcode) %></th>
+      <th><%= model_class.human_attribute_name(:policy_no) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @claims.each do |claim| %>
+      <tr>
+        <td><%= link_to claim.claim_id, edit_claim_path(claim) %></td>
+        <td><%= claim.claimant_name %></td>
+        <td><%= claim.postcode %></td>
+        <td><%= claim.policy_no %></td>
+        <td><%=l claim.created_at %></td>
+        <td>
+          <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                      edit_claim_path(claim), :class => 'btn btn-primary btn-xs' %>
+          <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                      claim_path(claim),
+                      :method => :delete,
+                      :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                      :class => 'btn btn-danger btn-xs' %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
