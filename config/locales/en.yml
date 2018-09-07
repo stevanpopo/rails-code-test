@@ -27,7 +27,7 @@ en:
         claimant_name: "Claimant Name"
         postcode: "Postcode"
         policy_no: "Policy No."
-        created_at: "Created Date"
+        created_at: "Created Date/Time"
       email:
         subject: Subject
         from: From
