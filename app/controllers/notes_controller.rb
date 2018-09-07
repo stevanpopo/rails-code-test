@@ -3,7 +3,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    @emails = @claim.notes
+    @notes = @claim.notes
   end
 
 end
