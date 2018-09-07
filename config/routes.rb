@@ -1,10 +1,11 @@
 TechnicalChallenge::Application.routes.draw do
-  
+
 
   root 'claims#index'
-  
+
   resources :claims do
     resources :emails
+    resources :notes
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
