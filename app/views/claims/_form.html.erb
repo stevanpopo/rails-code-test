@@ -2,7 +2,7 @@
   <div class="form-group">
     <%= f.label :status, :class => 'col-sm-3 control-label' %>
     <div class="col-sm-9">
-      <%= f.select :status, options_for_select(["Open", "Settled", "Cancelled"], "Open"), :class => 'form-control' %>
+      <%= f.select :status, options_for_select(["open", "settled", "cancelled"], "open"), :class => 'form-control' %>
     </div>
   </div>
   <div class="form-group">
