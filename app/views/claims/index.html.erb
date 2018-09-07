@@ -14,6 +14,7 @@
       <th><%= model_class.human_attribute_name(:postcode) %></th>
       <th><%= model_class.human_attribute_name(:policy_no) %></th>
       <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%= model_class.human_attribute_name(:settlement_amount) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -24,8 +25,8 @@
         <td><%= claim.claimant_name %></td>
         <td><%= claim.postcode %></td>
         <td><%= claim.policy_no %></td>
-        <!-- , format: :long -->
         <td><%=l claim.created_at, format: :claim_time %></td>
+        <td><%= claim.settlement_amount %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_claim_path(claim), :class => 'btn btn-primary btn-xs' %>
