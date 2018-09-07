@@ -1,12 +1,12 @@
 class ClaimsController < ApplicationController
   before_action :set_claim, only: [:show, :edit, :update, :destroy]
-  
+
   layout :choose_layout
 
   # GET /claims
   # GET /claims.json
   def index
-    @claims = Claim.all
+    @claims = Claim.all.order('created_at DESC')
   end
 
   # GET /claims/1
