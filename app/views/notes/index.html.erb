@@ -1,0 +1,21 @@
+<%- model_class = Note -%>
+<% content_for :title do %>
+  <%=t '.title', :default => model_class.model_name.human.pluralize.titleize %>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th><%= model_class.human_attribute_name(:body) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @notes.each do |note| %>
+      <tr>
+        <td><%= note.body %></td>
+        <td><%=l note.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
