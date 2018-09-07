@@ -3,7 +3,7 @@
 		<% if content_for(:title) %>
 			<div class="page-header">
 	  		<h2><span class="label label-default"><%= @claim.claim_id %></span><%= yield(:title) %></h2>
-	  		<span class="label label-default pull-right created_at"><%= @claim.created_at %></span>
+	  		<span class="label label-default pull-right created_at"><%=l @claim.created_at, format: :claim_time %></span>
   		</div>
 		<% end %>
 		<div class="col-sm-3 col-md-2">

@@ -24,7 +24,8 @@
         <td><%= claim.claimant_name %></td>
         <td><%= claim.postcode %></td>
         <td><%= claim.policy_no %></td>
-        <td><%=l claim.created_at %></td>
+        <!-- , format: :long -->
+        <td><%=l claim.created_at, format: :claim_time %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_claim_path(claim), :class => 'btn btn-primary btn-xs' %>
