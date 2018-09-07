@@ -1,6 +1,8 @@
 class NotesController < ApplicationController
   before_action :set_claim
 
+  layout "claim_detail"
+
   # GET /notes
   # GET /notes.json
   def index
