@@ -11,4 +11,5 @@ class Claim
   field :settlement_date, type: String
 
   has_many :emails
+  has_many :notes
 end
