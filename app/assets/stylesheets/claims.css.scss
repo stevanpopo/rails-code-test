@@ -14,15 +14,17 @@
 	}
 }
 
-.status-open {
-  background-color: #D3D3D3;
+.status {
   padding: 3px 6px;
   border-radius: 5%;
-  // color: white;
-}
-.status-settled {
-  background-color: green;
-}
-.status-cancelled {
-  background-color: red;
+
+  &.open {
+    background-color: #D3D3D3;
+  }
+  &.settled {
+    background-color: #98FB98;
+  }
+  &.cancelled {
+    background-color: #FF0000;
+  }
 }
