@@ -31,6 +31,8 @@ en:
         postcode: "Postcode"
         policy_no: "Policy No."
         created_at: "Created Date/Time"
+        settlement_amount: "Settlement Amount"
+        settlement_date: "Settlement Date"
       email:
         subject: Subject
         from: From
