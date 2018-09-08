@@ -2,33 +2,32 @@ namespace :email do
 
   desc "Goes through the email body content and extracts "
   task :extract_subjects => [:environment] do |t, args|
-    p "in email:extract_subjects"
-    # p Email.first
 
-    # emails = Email.find{(58ba8f2facce343bdc000053})
-    email = Email.find_by(_id: "58ba8f2facce343bdc000053")
+    emails = Email.all
 
-    # p emails
+    emails.each do |email|
+      if email.body
+        if email.body.include? 'Subject'
+          # p 'has subject'
+          # p email.body
+          subject_index = email.body.index('Subject')
+          return_index = email.body.index(/\r\n\r\n/, subject_index)
+          # p return_index, subject_index
+          length = return_index.to_i - subject_index.to_i
 
-    # emails.each do |email|
-    #   puts email.body
-    # end
-
-    hi = "Hello Stevan good to see you"
-    p hi[2, 5]
-
-    # p email.body
-    if email.body.include? 'Subject'
-      p 'has subject'
-      # strip = email.body.strip
-      # p strip
-      return_index = email.body.index(/\r\n\r\n/)
-      subject_index = email.body.index('Subject')
-      length = return_index - subject_index
-      p length
-      p email.body.slice(subject_index, length)
-
+          email.subject = email.body[subject_index, length]
+          # p email.subject
+        else
+          email.subject = email.body[0, 50]
+          # p email.subject
+        end
+      else
+        # p 'no email body'
+        email.subject = 'N/A'
+        # p email.subject
+      end
     end
-  end
 
+    # p Email.where(subject: nil).count
+  end
 end
