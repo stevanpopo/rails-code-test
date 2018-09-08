@@ -9,5 +9,12 @@
   <div class="alert alert-primary col-sm-offset-3 col-sm-9" role="alert">
     <h5><%=l note.created_at %></h5>
     <p><%= note.body %></p>
+    <div class="col-sm-offset-11">
+      <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                  claim_note_path(@claim, note),
+                  :method => :delete,
+                  :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                  :class => 'btn btn-danger btn-xs' %>
+    </div>
   </div>
 <% end %>
