@@ -5,7 +5,23 @@
 
 <%= render :partial => 'form' %>
 
-<table class="table table-striped">
+<% @notes.each do |note| %>
+  <div class="alert alert-primary col-sm-offset-3 col-sm-9" role="alert">
+    <h5><%=l note.created_at %></h5>
+    <p><%= note.body %></p>
+  </div>
+  <!-- <div class='media'>
+    <div class="media-body">
+      <h6 class="media-heading"><%=l note.created_at %></h6>
+
+      <div class="media">
+        <%= note.body %>
+      </div>
+    </div>
+  </div> -->
+<% end %>
+
+<!-- <table class="table table-striped">
   <thead>
     <tr>
       <th><%= model_class.human_attribute_name(:_id) %></th>
@@ -22,4 +38,4 @@
       </tr>
     <% end %>
   </tbody>
-</table>
+</table> -->
