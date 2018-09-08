@@ -20,7 +20,7 @@ class NotesController < ApplicationController
   def new
     p 'in the new action'
     @note = @claim.notes.new
-    @notes = @claim.notes
+    @notes = @claim.notes.order('created_at DESC')
   end
 
   # POST /notes
