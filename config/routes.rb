@@ -1,6 +1,5 @@
 TechnicalChallenge::Application.routes.draw do
 
-
   root 'claims#index'
 
   resources :claims do
