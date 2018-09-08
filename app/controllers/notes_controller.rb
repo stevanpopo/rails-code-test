@@ -8,6 +8,7 @@ class NotesController < ApplicationController
   def index
     p 'in the '
     @notes = @claim.notes
+    @note = @claim.notes.new
   end
 
   # GET /notes/1
@@ -17,10 +18,7 @@ class NotesController < ApplicationController
 
   # GET /notes/new
   def new
-    # super
-    p 'in the new route'
     @note = @claim.notes.new
-    p @note
   end
 
   # POST /notes

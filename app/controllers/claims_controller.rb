@@ -71,7 +71,7 @@ class ClaimsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def claim_params
-      params.require(:claim).permit(:claim_id, :claimant_name, :postcode, :policy_no)
+      params.require(:claim).permit(:claim_id, :claimant_name, :postcode, :policy_no, :status)
     end
 
     def choose_layout
