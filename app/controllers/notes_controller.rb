@@ -6,9 +6,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    p 'in the index action'
-    @notes = @claim.notes
-    @note = @claim.notes.new
+
   end
 
   # GET /notes/1
@@ -18,7 +16,6 @@ class NotesController < ApplicationController
 
   # GET /notes/new
   def new
-    p 'in the new action'
     @note = @claim.notes.new
     @notes = @claim.notes.order('created_at DESC')
   end
