@@ -6,7 +6,7 @@ class NotesController < ApplicationController
   # GET /notes
   # GET /notes.json
   def index
-    p 'in the '
+    p 'in the index action'
     @notes = @claim.notes
     @note = @claim.notes.new
   end
@@ -18,7 +18,9 @@ class NotesController < ApplicationController
 
   # GET /notes/new
   def new
+    p 'in the new action'
     @note = @claim.notes.new
+    @notes = @claim.notes
   end
 
   # POST /notes
@@ -28,7 +30,7 @@ class NotesController < ApplicationController
 
     respond_to do |format|
       if @note.save
-        format.html { redirect_to @note, notice: 'Note was successfully created.' }
+        format.html { redirect_to @claim, notice: 'Note was successfully created.' }
         format.json { render action: 'show', status: :created, location: @note }
       else
         format.html { render action: 'new' }
