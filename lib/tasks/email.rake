@@ -7,7 +7,7 @@ namespace :email do
 
     emails.each_with_index do |email, i|
       if i%4000 === 0
-        p 'Another 4000 subjects have been amended. Still going!'
+        p "#{i} subject lines(s) have been amended in total. Still going!"
       end
 
       if email.body
@@ -35,6 +35,6 @@ namespace :email do
       end
     end
 
-    p Email.where(subject: nil).count
+    # p Email.where(subject: nil).count
   end
 end
