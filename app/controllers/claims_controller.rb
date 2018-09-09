@@ -42,8 +42,12 @@ class ClaimsController < ApplicationController
   # PATCH/PUT /claims/1
   # PATCH/PUT /claims/1.json
   def update
+    puts "\n\r in the update action \n\r\n\r"
     respond_to do |format|
       if @claim.update(claim_params)
+        puts "\n\r this is the claim", @claim
+        puts @claim.status
+
         format.html { redirect_to claims_path, notice: 'Claim was successfully updated.' }
         format.json { head :no_content }
       else
@@ -71,7 +75,7 @@ class ClaimsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def claim_params
-      params.require(:claim).permit(:claim_id, :claimant_name, :postcode, :policy_no, :status)
+      params.require(:claim).permit(:claim_id, :claimant_name, :postcode, :policy_no, :status, :settlement_amount, :settlement_date)
     end
 
     def choose_layout

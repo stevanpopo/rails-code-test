@@ -113,7 +113,7 @@ claim_ids.each do |id|
     note.updated_at = note.created_at
     note.save
   end
-  p "created notes for claim #{id}"
+  puts "\n\rcreated notes for claim #{id}"
 end
 
 puts "\n\r   -> Done! (#{Claim.count} claims, #{Email.count} emails and #{Note.count} notes created)\n\r"
