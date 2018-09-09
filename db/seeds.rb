@@ -44,9 +44,9 @@ LAST_NAMES = ["Smith", "Johnson", "Williams", "Jones", "Brown", "Davis", "Miller
 POSTCODES = ["N1 6ND", "LE11 2GZ", "N7 8AP", "N1 6ND", "EH54 6DZ", "BB1 7LT", "WD23 2JX", "NG18 5ET", "NG24 2EF", "ST9 0NG", "CR0 2RL", "CH65 6SB"]
 LETTERS = Array('A'..'Z')
 
-
-
-
+def make_postcode()
+ return Array.new(2){letters.sample}.join.to_s + rand(9).to_s + ' ' + rand(9).to_s + Array.new(2){letters.sample}.join.to_s
+end
 
 if (Claim.count != CLAIMS_COUNT)
   CLAIMS_COUNT.times do |i|
