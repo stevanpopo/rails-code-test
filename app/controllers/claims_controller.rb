@@ -43,10 +43,20 @@ class ClaimsController < ApplicationController
   # PATCH/PUT /claims/1.json
   def update
     puts "\n\r in the update action \n\r\n\r"
+    puts "\n\r this is the claim", @claim
+    puts @claim.status
+
     respond_to do |format|
+      puts @claim.status
+
       if @claim.update(claim_params)
-        puts "\n\r this is the claim", @claim
+        # puts "\n\r this is the claim", @claim
         puts @claim.status
+        if @claim.status == 'settled'
+          @claim.settlement_date = DateTime.now
+          puts DateTime.now
+          @claim.save
+        end
 
         format.html { redirect_to claims_path, notice: 'Claim was successfully updated.' }
         format.json { head :no_content }
