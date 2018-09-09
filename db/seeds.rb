@@ -83,7 +83,40 @@ claim_ids = Claim.all.collect(&:id)
 
 puts "\tAssigning an average of #{EMAILS_PER_CLAIM_COUNT} emails per claim"
 Email.only(:claim_id, :id).limit(CLAIMS_COUNT*EMAILS_PER_CLAIM_COUNT).only.each do |e|
+  p e
  	e.set(claim_id: claim_ids.sample)
 end
 
 puts "\n\r   -> Done! (#{Claim.count} claims and #{Email.count} emails created)\n\r"
+
+puts "\n\r======================================"
+puts "4. Assigning notes to claims"
+puts "======================================"
+
+# Assign a random number (<10) to claims
+
+SAMPLE_NOTE_BODIES = [
+  "I phoned the policyholder and arranged a time to visit.",
+  "They complained about bad customer service from the call centre.",
+  "After visiting the site I arranged a follow-up visit.",
+  "Tried calling the customer all day, but I did not get a response. Will try again next week.",
+  "The customer then told me to cancel the appointment because she is going on holiday.",
+  "I'm working on my report and will deliver it by the end of this week.",
+  "This claim should be cancelled because the customer can not be reached via phone or email.",
+  "There was a complaint about workmen walking through the PH's house with dirty boots.",
+  "I advised the customer that we are dealing with his claims as quickly as possible.",
+  "The customer also phoned in to amend her address details because she has moved house."
+ ]
+
+claim_ids.each do |id|
+  rand(10).times do |i|
+    p id, i
+
+    note = Note.new
+    note.body = SAMPLE_NOTE_BODIES.sample
+    note.claim_id = id
+    note.save
+
+    p note
+  end
+end
