@@ -110,13 +110,11 @@ SAMPLE_NOTE_BODIES = [
 
 claim_ids.each do |id|
   rand(10).times do |i|
-    p id, i
-
     note = Note.new
     note.body = SAMPLE_NOTE_BODIES.sample
     note.claim_id = id
+    note.created_at = (0..14).to_a.sample.days.ago.to_date
+    note.updated_at = note.created_at
     note.save
-
-    p note
   end
 end
