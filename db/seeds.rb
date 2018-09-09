@@ -67,7 +67,7 @@ if (Claim.count != CLAIMS_COUNT)
     # Assign some random cost and reserve values
     claim.claimant_name = "#{FIRST_NAMES.sample} #{LAST_NAMES.sample}"
     claim.claim_id = 1000+i
-  	claim.postcode = POSTCODES.sample
+  	claim.postcode = make_postcode()
 	  claim.policy_no = Array.new(8){rand(36).to_s(36)}.join.upcase
 
     claim.save
