@@ -8,7 +8,7 @@ class Claim
   field :postcode, type: String
   field :policy_no, type: String
   field :settlement_amount, type: String
-  field :settlement_date, type: DateTime
+  field :settlement_date, type: String
 
   has_many :emails
   has_many :notes

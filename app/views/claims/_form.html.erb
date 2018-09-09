@@ -32,17 +32,15 @@
   <div class="form-group">
     <%= f.label :settlement_amount, :class => 'col-sm-3 control-label' %>
     <div class="col-sm-9">
-      <%= f.text_field :settlement_amount, :class => 'form-control' %>
+      <%= f.text_field :settlement_amount, :readonly => f.object.status == "settled", :class => 'form-control' %>
     </div>
   </div>
   <div class="form-group">
     <%= f.label :settlement_date, :class => 'col-sm-3 control-label' %>
     <div class="col-sm-9">
-      <%= f.text_field :settlement_date, :readonly => f.object.settlement_date.instance_of?(DateTime) , :class => 'form-control' %>
+      <%= f.text_field :settlement_date, :readonly => f.object.status == "settled", :class => 'form-control' %>
     </div>
   </div>
-
-  <h2><%= f.object.settlement_date.instance_of? DateTime %></h2>
 
   <div class="form-group">
     <div class="col-sm-offset-3 col-sm-9">
