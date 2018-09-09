@@ -1,6 +1,6 @@
 namespace :email do
 
-  desc "Goes through the email body content and extracts "
+  desc "Goes through the email body content and extracts the subject line"
   task :extract_subjects => [:environment] do |t, args|
 
     emails = Email.all
