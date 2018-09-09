@@ -83,18 +83,14 @@ claim_ids = Claim.all.collect(&:id)
 
 puts "\tAssigning an average of #{EMAILS_PER_CLAIM_COUNT} emails per claim"
 Email.only(:claim_id, :id).limit(CLAIMS_COUNT*EMAILS_PER_CLAIM_COUNT).only.each do |e|
-  p e
  	e.set(claim_id: claim_ids.sample)
 end
 
-puts "\n\r   -> Done! (#{Claim.count} claims and #{Email.count} emails created)\n\r"
-
 puts "\n\r======================================"
-puts "4. Assigning notes to claims"
+puts "4. Creating notes for each claim"
 puts "======================================"
 
 # Assign a random number (<10) to claims
-
 SAMPLE_NOTE_BODIES = [
   "I phoned the policyholder and arranged a time to visit.",
   "They complained about bad customer service from the call centre.",
@@ -117,4 +113,7 @@ claim_ids.each do |id|
     note.updated_at = note.created_at
     note.save
   end
+  p "created notes for claim #{id}"
 end
+
+puts "\n\r   -> Done! (#{Claim.count} claims, #{Email.count} emails and #{Note.count} notes created)\n\r"
