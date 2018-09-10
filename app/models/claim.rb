@@ -12,4 +12,10 @@ class Claim
 
   has_many :emails
   has_many :notes
+
+  def self.search(search)
+    if search
+      any_of({ claim_id: /#[search]/i}, { claimant_name: /#[search]/i})
+    end
+  end
 end
