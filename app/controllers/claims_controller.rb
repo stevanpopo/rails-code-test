@@ -6,7 +6,11 @@ class ClaimsController < ApplicationController
   # GET /claims
   # GET /claims.json
   def index
-    @claims = Claim.all.order('created_at DESC')
+    if params[:search].blank?
+      @claims = Claim.all.order('created_at DESC')
+    else
+      @claims = Claim.search(params[:search])
+    end
   end
 
   # GET /claims/1
