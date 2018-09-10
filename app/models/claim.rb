@@ -15,7 +15,7 @@ class Claim
 
   def self.search(search)
     if search
-      any_of({ claim_id: /#[search]/i}, { claimant_name: /#[search]/i})
+      any_of({ :claim_id => "#{search}"}, { :claimant_name => "#{search}"})
     end
   end
 end
