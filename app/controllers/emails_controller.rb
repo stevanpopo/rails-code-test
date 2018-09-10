@@ -6,7 +6,7 @@ class EmailsController < ApplicationController
   # GET /emails
   # GET /emails.json
   def index
-    @emails = @claim.emails
+    @emails = @claim.emails.page(params[:page]).per(50)
   end
 
   # GET /emails/1
