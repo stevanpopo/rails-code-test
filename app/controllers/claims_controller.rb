@@ -10,7 +10,7 @@ class ClaimsController < ApplicationController
     if params[:search].blank?
       @claims = Claim.all.order('created_at DESC').page params[:page]
     else
-      @claims = Claim.search(params[:search])
+      @claims = Claim.search(params[:search]).page params[:page]
     end
   end
 
