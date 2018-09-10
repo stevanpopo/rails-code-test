@@ -13,9 +13,14 @@ class Claim
   has_many :emails
   has_many :notes
 
-  def self.search(search)
-    if search
-      any_of({ :claim_id => "#{search}"}, { :claimant_name => "#{search}"})
-    end
-  end
+  # def self.search(search)
+  #   if search
+  #     any_of({ :claim_id => "#{search}"}, { :claimant_name => "#{search}"})
+  #   end
+  # end
+
+  # def self.search(search, page)
+  #   paginate :per_page => 5, :page => page,
+  #            :conditions => ['name like ?', "%#{search}%"]
+  # end
 end

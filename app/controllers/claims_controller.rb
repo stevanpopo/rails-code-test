@@ -1,14 +1,14 @@
 class ClaimsController < ApplicationController
   before_action :set_claim, only: [:show, :edit, :update, :destroy]
-  before_action :set_page, only: [:index]
 
   layout :choose_layout
+  require 'will_paginate/array'
 
   # GET /claims
   # GET /claims.json
   def index
     if params[:search].blank?
-      @claims = Claim.all.order('created_at DESC').limit(20).offset(@page * 20)
+      @claims = Claim.all.paginate(params[:page]).order('created_at DESC')
     else
       @claims = Claim.search(params[:search])
     end
@@ -91,10 +91,6 @@ class ClaimsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def claim_params
       params.require(:claim).permit(:claim_id, :claimant_name, :postcode, :policy_no, :status, :settlement_amount, :settlement_date)
-    end
-
-    def set_page
-      @page = params[:page].to_i || 0
     end
 
     def choose_layout
