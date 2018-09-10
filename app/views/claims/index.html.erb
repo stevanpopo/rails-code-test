@@ -51,3 +51,9 @@
     <% end %>
   </tbody>
 </table>
+<h2><%= params[:page].to_i - 1 %></h2>
+<h2><%= @page - 1 %></h2>
+<h2><%= params[:page].to_i + 1 %></h2>
+<h2><%= @page + 1 %></h2>
+<%= link_to 'Prev 10', claims_path(page: @page-1) %>
+<%= link_to 'Next 10', claims_path(page: @page+1) %>
