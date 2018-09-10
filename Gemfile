@@ -50,8 +50,5 @@ end
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
-# additional
-# gem 'will_paginate', '~> 3.1.6'
-# gem "will_paginate_mongoid"
-# gem 'will_paginate-bootstrap'
+# For Pagination
 gem 'kaminari'
