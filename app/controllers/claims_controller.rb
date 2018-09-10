@@ -2,13 +2,13 @@ class ClaimsController < ApplicationController
   before_action :set_claim, only: [:show, :edit, :update, :destroy]
 
   layout :choose_layout
-  require 'will_paginate/array'
+  # require 'will_paginate/array'
 
   # GET /claims
   # GET /claims.json
   def index
     if params[:search].blank?
-      @claims = Claim.all.paginate(params[:page]).order('created_at DESC')
+      @claims = Claim.all.order('created_at DESC').page params[:page]
     else
       @claims = Claim.search(params[:search])
     end

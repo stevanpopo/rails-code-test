@@ -54,3 +54,4 @@ end
 # gem 'will_paginate', '~> 3.1.6'
 # gem "will_paginate_mongoid"
 # gem 'will_paginate-bootstrap'
+gem 'kaminari'
